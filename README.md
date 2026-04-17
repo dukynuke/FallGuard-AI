@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="FallGuard banner" width="100%">
+  <img src="assets/banner.png" alt="FallGuard banner" width="100%">
 </p>
 
 <h1 align="center">FallGuard</h1>
@@ -21,7 +21,7 @@
 
 The repository contains two main learning paths:
 
-- a **sensor-based fall detection pipeline** built from motion signals such as acceleration, gyroscope, and orientation
+- a **motion-based fall detection pipeline** built from motion signals such as acceleration, gyroscope, and orientation
 - an **audio-based fall detection pipeline** that converts audio clips into mel-spectrograms and classifies **Fall** vs **NonFall**
 
 The project is designed to be **demo-friendly**: it combines a neural network with a simple posture-based verification stage to reduce false alarms in practical smartphone scenarios.
@@ -48,15 +48,15 @@ Falls can become dangerous very quickly, especially when the person cannot call 
 ```text
 FallGuard/
 ├── audio/
-│   └── FallGuardAudioCode_2.m
-├── sensor/
+│   └── FallGuardAudioCode.m
+├── motion/
 │   ├── FallGuardCode.m
-│   └── MobiFall_Builder_2.m
+│   └── MobiFall_Builder.m
 ├── assets/
 │   ├── banner.svg
 │   └── screenshots/
 │       ├── hero-placeholder.svg
-│       ├── sensor-confusion-placeholder.svg
+│       ├── motion-confusion-placeholder.svg
 │       ├── audio-confusion-placeholder.svg
 │       └── training-placeholder.svg
 ├── docs/
@@ -71,14 +71,14 @@ FallGuard/
 
 ```mermaid
 flowchart LR
-    A[MobiFall raw sensor files] --> B[MobiFall_Builder_2.m]
+    A[MobiFall raw motion files] --> B[MobiFall_Builder.m]
     B --> C[MobiFall_Ready.mat]
     C --> D[FallGuardCode.m]
-    D --> E[Sensor CNN]
+    D --> E[Motion CNN]
     D --> F[Posture verification using pitch and roll]
     E --> G[Final motion decision]
 
-    H[SAFE audio dataset] --> I[FallGuardAudioCode_2.m]
+    H[SAFE audio dataset] --> I[FallGuardAudioCode.m]
     I --> J[Mel-spectrogram extraction]
     J --> K[Audio CNN]
     K --> L[Fall / NonFall prediction]
@@ -88,7 +88,7 @@ flowchart LR
 
 ## What each file does
 
-### `sensor/MobiFall_Builder_2.m`
+### `motion/MobiFall_Builder.m`
 Builds the motion dataset for training.
 
 Main responsibilities:
@@ -102,8 +102,8 @@ Main responsibilities:
   - `Y_Categorical` labels
 - saves everything into `MobiFall_Ready.mat`
 
-### `sensor/FallGuardCode.m`
-Main sensor training and validation script.
+### `motion/FallGuardCode.m`
+Main motion AI training and validation script.
 
 Main responsibilities:
 - loads `MobiFall_Ready.mat`
@@ -116,7 +116,7 @@ Main responsibilities:
 > **Important:** this script calls `Network;` at the beginning.  
 > Add `Network.m` to the repository if you want other users to run the motion model directly.
 
-### `audio/FallGuardAudioCode_2.m`
+### `audio/FallGuardAudioCode.m`
 Main audio training and evaluation script.
 
 Main responsibilities:
@@ -137,9 +137,9 @@ Main responsibilities:
   <img src="assets/screenshots/hero-placeholder.svg" alt="Demo overview placeholder" width="92%">
 </p>
 
-### Sensor pipeline result
+### Motion pipeline result
 <p align="center">
-  <img src="assets/screenshots/sensor-confusion-placeholder.svg" alt="Sensor confusion placeholder" width="92%">
+  <img src="assets/screenshots/motion-confusion-placeholder.svg" alt="Motion confusion placeholder" width="92%">
 </p>
 
 ### Audio pipeline result
@@ -158,15 +158,15 @@ Main responsibilities:
 
 ## Quick start
 
-### 1) Sensor pipeline
+### 1) Motion pipeline
 
 Prepare your MobiFall-style dataset and place the files where the builder can access them.
 
 Run:
 
 ```matlab
-cd sensor
-MobiFall_Builder_2
+cd motion
+MobiFall_Builder
 FallGuardCode
 ```
 
@@ -188,7 +188,7 @@ Then run:
 
 ```matlab
 cd audio
-FallGuardAudioCode_2
+FallGuardAudioCode
 ```
 
 Expected output:
@@ -255,56 +255,14 @@ That makes it easier to keep preprocessing consistent between MATLAB training an
 For the strongest GitHub presentation, replace the placeholders with:
 
 - `assets/screenshots/demo-app.png`
-- `assets/screenshots/sensor-confusion-matrix.png`
+- `assets/screenshots/motion-confusion-matrix.png`
 - `assets/screenshots/audio-confusion-matrix.png`
 - `assets/screenshots/training-progress.png`
 - `assets/screenshots/pipeline-overview.png`
 
 ---
 
-## Professional GitHub setup checklist
-
-- add a short repository description
-- add GitHub topics such as `fall-detection`, `matlab`, `cnn`, `android`, `audio-classification`
-- upload real screenshots
-- add `Network.m` if it can be shared
-- create a `v1.0.0` release
-- pin the repository on your profile
-
-A full upload guide is included here:
-
-**[`docs/UPLOAD_GUIDE.md`](docs/UPLOAD_GUIDE.md)**
-
----
-
-## Suggested repository description
-
-> Hybrid smartphone fall detection system using motion sensors, posture verification, and audio-based CNN classification.
-
----
-
-## Suggested citation / project note
-
-If you use or adapt this repository, please cite the project or reference the competition team appropriately.
-
-```bibtex
-@misc{fallguard2026,
-  title        = {FallGuard: Hybrid Smartphone Fall Detection Using Motion and Audio Pipelines},
-  author       = {Ridma Ganganath and team},
-  year         = {2026},
-  note         = {AI competition project repository}
-}
-```
-
----
-
-## License
-
-Add a license before public release if needed.  
-For a simple open repository, `MIT License` is a common choice.
-
----
 
 ## Acknowledgment
 
-Built as part of an AI competition project focused on practical, accessible fall detection using everyday devices.
+Built as part of an AI competition project focused on practical, accessible fall detection using everyday devices for 2026 Applied AI Challenge in Iowa State University.
