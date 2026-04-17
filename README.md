@@ -131,7 +131,11 @@ Main responsibilities:
 
 ### Motion pipeline result
 <p align="center">
-  <img src="assets/screenshots/motion-confusion-matrix.png" alt="Motion AI confusion matrix" width="92%">
+  <img src="assets/screenshots/motion-confusion-matrix.png" alt="Motion AI confusion matrix on MobiFall v2.0 Dataset" width="92%">
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/motion-confusion-matrix-MobiAct.png" alt="Motion AI confusion matrix on MobiFall v2.0 Dataset" width="92%">
 </p>
 
 ### Audio pipeline result
@@ -142,6 +146,10 @@ Main responsibilities:
 ### Training screenshots
 <p align="center">
   <img src="assets/screenshots/motionAI_trainingCurve.png" alt="Motion AI Training curve with MobiFall v2.0 Dataset" width="92%">
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/motionAI_trainingCurve_MobiAct.png" alt="Motion AI Training curve with MobiAct Dataset" width="92%">
 </p>
 
 <p align="center">
