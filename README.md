@@ -53,12 +53,12 @@ FallGuard/
 │   ├── FallGuardCode.m
 │   └── MobiFall_Builder.m
 ├── assets/
-│   ├── banner.svg
+│   ├── banner.png
 │   └── screenshots/
-│       ├── hero-placeholder.svg
-│       ├── motion-confusion-placeholder.svg
-│       ├── audio-confusion-placeholder.svg
-│       └── training-placeholder.svg
+│       ├── hero-placeholder.png
+│       ├── motion-confusion-placeholder.png
+│       ├── audio-confusion-placeholder.png
+│       └── training-placeholder.png
 ├── docs/
 │   └── UPLOAD_GUIDE.md
 ├── README.md
@@ -132,27 +132,26 @@ Main responsibilities:
 
 ## Demo visuals
 
-### Project / app overview
-<p align="center">
-  <img src="assets/screenshots/hero-placeholder.svg" alt="Demo overview placeholder" width="92%">
-</p>
-
 ### Motion pipeline result
 <p align="center">
-  <img src="assets/screenshots/motion-confusion-placeholder.svg" alt="Motion confusion placeholder" width="92%">
+  <img src="assets/screenshots/motion-confusion-matrix.png" alt="Motion AI confusion matrix" width="92%">
 </p>
 
 ### Audio pipeline result
 <p align="center">
-  <img src="assets/screenshots/audio-confusion-placeholder.svg" alt="Audio confusion placeholder" width="92%">
+  <img src="assets/screenshots/audio-confusion-matrix.png" alt="Audio AI confusion matrix" width="92%">
 </p>
 
-### Training / build screenshots
+### Training screenshots
 <p align="center">
-  <img src="assets/screenshots/training-placeholder.svg" alt="Training placeholder" width="92%">
+  <img src="assets/screenshots/motionAI_trainingCurve.png" alt="Motion AI Training curve with MobiFall v2.0 Dataset" width="92%">
 </p>
 
-> Replace the placeholder SVG files with your real screenshots before the final competition submission or public release.
+<p align="center">
+  <img src="assets/screenshots/audioAI_trainingCurve.png" alt="Motion AI Training curve with MobiFall v2.0 Dataset" width="92%">
+</p>
+
+> Replace the placeholder png files with your real screenshots before the final competition submission or public release.
 
 ---
 
