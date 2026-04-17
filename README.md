@@ -151,8 +151,6 @@ Main responsibilities:
   <img src="assets/screenshots/audioAI_trainingCurve.png" alt="Motion AI Training curve with MobiFall v2.0 Dataset" width="92%">
 </p>
 
-> Replace the placeholder png files with your real screenshots before the final competition submission or public release.
-
 ---
 
 ## Quick start
@@ -198,6 +196,53 @@ Expected output:
 
 ---
 
+## Neural network setup
+
+### Motion AI 
+The motion branch is trained on fixed-length sensor windows generated from the MobiFall pipeline.  
+Its training configuration is:
+
+#### Training configuration
+- **Optimizer:** Adam
+- **Loss function:** Cross-entropy
+- **Epochs:** 36
+- **Mini-batch size:** 32
+- **Initial learning rate:** 1e-3
+- **Validation split:** 80/20 holdout
+- **Extra logic:** post-processing with **pitch/roll posture verification** to suppress suspicious false positives
+
+### Audio AI 
+The audio branch converts 3-second audio clips into **mel-spectrograms** and feeds them into a compact CNN.
+
+#### Audio feature front end
+- **Sample rate:** 48 kHz
+- **Window size:** 30 ms Hann window
+- **Overlap:** 15 ms
+- **Representation:** mel-spectrogram
+- **Input normalization:** zerocenter
+
+#### Audio CNN architecture
+- Image input layer
+- Conv2D(16) + BatchNorm + ReLU + MaxPool
+- Conv2D(32) + BatchNorm + ReLU + MaxPool
+- Conv2D(64) + BatchNorm + ReLU
+- Fully connected layer (64)
+- Dropout (0.5)
+- Fully connected layer (2 classes)
+- Softmax + classification layer
+
+#### Training configuration
+- **Optimizer:** Adam
+- **Loss function:** classification loss
+- **Epochs:** 15
+- **Mini-batch size:** 64
+- **Initial learning rate:** 1e-3
+- **L2 regularization:** 1e-4
+- **Validation patience:** 5
+- **Execution environment:** auto
+
+---
+
 ## Datasets
 
 This repository is structured around two data sources:
@@ -220,8 +265,6 @@ where:
 - `FF` = class ID
 - `01` = Fall
 - `02` = NonFall
-
-> For privacy, storage, and licensing reasons, datasets may be kept outside the public repository.
 
 ---
 
@@ -249,17 +292,6 @@ That makes it easier to keep preprocessing consistent between MATLAB training an
 
 ---
 
-## Recommended screenshots to add
-
-For the strongest GitHub presentation, replace the placeholders with:
-
-- `assets/screenshots/demo-app.png`
-- `assets/screenshots/motion-confusion-matrix.png`
-- `assets/screenshots/audio-confusion-matrix.png`
-- `assets/screenshots/training-progress.png`
-- `assets/screenshots/pipeline-overview.png`
-
----
 
 
 ## Acknowledgment
