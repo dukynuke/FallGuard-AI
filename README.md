@@ -113,9 +113,6 @@ Main responsibilities:
 - plots the final confusion matrix
 - computes normalization statistics for Android deployment
 
-> **Important:** this script calls `Network;` at the beginning.  
-> Add `Network.m` to the repository if you want other users to run the motion model directly.
-
 ### `audio/FallGuardAudioCode.m`
 Main audio training and evaluation script.
 
