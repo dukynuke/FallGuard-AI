@@ -147,14 +147,17 @@ Main responsibilities:
 <p align="center">
   <img src="assets/screenshots/motionAI_trainingCurve.png" alt="Motion AI Training curve with MobiFall v2.0 Dataset" width="92%">
 </p>
+<p align="center"><em>Motion AI training curve with the MobiFall v2.0 dataset</em></p>
 
 <p align="center">
   <img src="assets/screenshots/motionAI_trainingCurve_MobiAct.png" alt="Motion AI Training curve with MobiAct Dataset" width="92%">
 </p>
+<p align="center"><em>Motion AI training curve with the MobiAct dataset</em></p>
 
 <p align="center">
   <img src="assets/screenshots/audioAI_trainingCurve.png" alt="Motion AI Training curve with MobiFall v2.0 Dataset" width="92%">
 </p>
+<p align="center"><em>Audio AI training curve with the SAFE dataset</em></p>
 
 ---
 
@@ -252,6 +255,14 @@ The audio branch converts 3-second audio clips into **mel-spectrograms** and fee
 
 This repository is structured around two data sources:
 
+- **MobiFall / MobiAct**  
+  Provided by the **Biomedical Informatics Laboratory (BMI Lab), Hellenic Mediterranean University**  
+  Link: [The MobiFall and MobiAct datasets](https://bmi.hmu.gr/the-mobifall-and-mobiact-datasets-2/)
+
+- **SAFE: Sound Analysis for Fall Event detection**  
+  Available on Kaggle  
+  Link: [SAFE dataset on Kaggle](https://www.kaggle.com/datasets/antonygarciag/fall-audio-detection-dataset)
+  
 ### Motion dataset
 The motion pipeline expects a **MobiFall-style** directory of text files containing:
 - accelerometer
